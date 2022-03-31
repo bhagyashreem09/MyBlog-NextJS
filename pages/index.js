@@ -38,8 +38,7 @@ export async function getStaticProps(context) {
       posts: posts.map((post) => ({
         id: post._id.toString(),
         title: post.title,
-        // address: meetup.address,
-        image: post.image,
+        image: post.image
       })),
     },
     revalidate: 1,
