@@ -112,4 +112,6 @@ const NewPostForm = forwardRef((props, ref) => {
   );
 });
 
+NewPostForm.displayName = "NewPostForm";
+
 export default NewPostForm;

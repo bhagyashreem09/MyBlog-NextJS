@@ -75,4 +75,6 @@ const UpdatePostForm = forwardRef((props, ref) => {
   );
 });
 
+UpdatePostForm.displayName = "UpdatePostForm";
+
 export default UpdatePostForm;

@@ -9,14 +9,8 @@ function MainNavigation() {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/">
-          {/* <div>
-            <FlareIcon />
-            MyBlog
-          </div> */}
+        <Link href="/" passHref>
           <LogoNavBar />
-
-          {/* <LogoNavBar /> */}
         </Link>
       </div>
       <nav>
