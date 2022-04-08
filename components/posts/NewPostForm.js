@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import classes from "./NewPostForm.module.css";
 
-const NewPostForm = forwardRef((props, ref) => {
+function NewPostForm(props) {
   // const [title, setTitle] = useState('')
   // const [image, setImage] = useState('');
   // const [description, setDescription] = useState('');
@@ -110,8 +110,8 @@ const NewPostForm = forwardRef((props, ref) => {
       </Card>
     </div>
   );
-});
+}
 
-NewPostForm.displayName = "NewPostForm";
+// NewPostForm.displayName = "NewPostForm";
 
 export default NewPostForm;

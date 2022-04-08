@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import classes from "./UpdatePostForm.module.css";
 
-const UpdatePostForm = forwardRef((props, ref) => {
+function UpdatePostForm (props) {
   // const [title, setTitle] = useState('')
   // const [image, setImage] = useState('');
   // const [description, setDescription] = useState('');
@@ -73,8 +73,8 @@ const UpdatePostForm = forwardRef((props, ref) => {
       </Form>
     </Card>
   );
-});
+};
 
-UpdatePostForm.displayName = "UpdatePostForm";
+// UpdatePostForm.displayName = "UpdatePostForm";
 
 export default UpdatePostForm;

@@ -118,15 +118,15 @@ function PostDetails(props) {
             }
 
             <Tooltip title="Delete Post">
-              <IconButton onClick={deletePostHandler} aria-label="delete">
+              <IconButton onClick={deleteOpen} aria-label="delete">
                 <DeleteIcon />
               </IconButton>
             </Tooltip>
-            {/* {
+            {
               <Modal open={deleteStateOpen} onClose={deleteClose}>
                 <DeletePostForm onClick={deletePostHandler} />
               </Modal>
-            } */}
+            }
           </div>
         </Card>
       </div>
