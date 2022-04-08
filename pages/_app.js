@@ -1,15 +1,18 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
+// import Layout from "../components/layout/Layout";
+import MainNavigation from "../components/layout/MainNavigation";
 
-import Layout from '../components/layout/Layout';
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
+    <div>
+      <MainNavigation />
+      {/* <Layout> */}
       <Component {...pageProps} />
-    </Layout>
-  ); 
+      {/* </Layout> */}
+    </div>
+  );
 }
 
-export default MyApp
+export default MyApp;

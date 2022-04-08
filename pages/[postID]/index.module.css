@@ -1,7 +1,17 @@
 .detail {
     text-align: center;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    margin-bottom: 3rem;
 }
 
 .detail img {
     width: 100%;
+}
+
+.iconButtons {
+    display: flex;
+    justify-content:right;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }

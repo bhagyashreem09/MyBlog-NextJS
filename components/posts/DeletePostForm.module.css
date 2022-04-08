@@ -1,20 +1,16 @@
-.background {
-  background-color: #EEEEEE;
-}
-
 .card {
   position: absolute;
-  /* height: 573px; */
-  width: 940.21px;
+  height: 573px;
+  width: 550px;
+  height: 325px;
   border-radius: 20px;
-  margin-left: 20%;
-  margin-top: 2%;
+  margin-left: 31%;
+  margin-top: 8%;
 }
 
-.form {
-  margin-inline: 80px;
+.content {
+  margin-inline: 60px;
   margin-top: 35px;
-  margin-bottom: 30px;
 }
 
 .header {
@@ -22,20 +18,14 @@
   text-align: center;
 }
 
-.control {
-  margin-top: 20px;
-}
-
-.label {
+.body {
+  margin-top: 50px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
-}
-
-.textbox {
-  border-radius: 10px;
-  white-space: pre-wrap;
+  line-height: 26px;
+  text-align: center;
 }
 
 /* -------------------------------- Buttons -------------------------- */
@@ -45,11 +35,11 @@
   text-align: right;
 }
 
-.upload {
+.delete {
   cursor: pointer;
   background: #df7861;
   border-radius: 10px;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 2rem;
   margin-left: 20px;
   font-family: "Nunito";
   border-color: #df7861;
@@ -61,8 +51,8 @@
   font-size: 18px;
 }
 
-.upload Button:hover,
-.upload Button:active {
+.delete Button:hover,
+.delete Button:active {
   background: #df7861;
 }
 

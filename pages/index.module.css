@@ -1,0 +1,115 @@
+.background {
+  background-color: #df7861;
+  padding-top: 0.1%;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  margin-top: 20px;
+  border-radius: 0%;
+  margin-inline: 150px;
+  border: 0;
+  background: #ffffff;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+}
+
+.textContent {
+  position: relative;
+  margin-top: 80px;
+  padding-inline: 10%;
+}
+
+.text1 {
+  position: relative;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.text2 {
+  position: relative;
+  margin-top: 30px;
+  line-height: 70px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 19px;
+}
+
+.image {
+  position: relative;
+  align-items: flex-start;
+}
+
+.logoWrapper {
+  margin-top: 30px;
+  height: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.empty {
+  align-content: flex-start;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content {
+  margin-top: 90px;
+  margin-inline: 70px;
+}
+
+.pageCards {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  margin-inline: 150px;
+  justify-content: center;
+  gap: 100px;
+}
+
+.cardImage {
+  position: relative;
+  background: #f9f9da;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 0%;
+  border: 0;
+}
+
+.cardTitle {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.footer {
+  margin-top: 120px;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  background: #f9f9da;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+}
+
+.footerText {
+  padding: 15px;
+  color: #0a1d37;
+  font-family: "Nunito";
+  font-size: 20px;
+  text-decoration: none;
+}

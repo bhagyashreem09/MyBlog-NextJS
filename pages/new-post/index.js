@@ -3,12 +3,15 @@ import Head from "next/head";
 import { Fragment } from "react";
 import NewPostForm from "../../components/posts/NewPostForm";
 
+//----------------------------------ADDING POST--------------------------------------------
+
 function NewPostPage() {
   const router = useRouter();
 
   async function addPostHandler(enteredPostData) {
-    const response = await fetch("/api/new-post", {
+    const response = await fetch("/api/add-update-post", {
       // this will trigger the api function.
+
       method: "POST",
       body: JSON.stringify(enteredPostData),
       headers: {
@@ -20,14 +23,7 @@ function NewPostPage() {
 
     console.log(data);
 
-    if (!response.ok) {
-      console.log("data post failed");
-    }
-    if (response.ok) {
-      console.log("data post success");
-    }
-
-    router.replace("/");
+    router.replace("/all-posts");
   }
 
   return (
@@ -39,7 +35,8 @@ function NewPostPage() {
           content="Share what you are currently doing or feeling, just a few clicks away!"
         />
       </Head>
-      <NewPostForm onAddPost={addPostHandler} />;
+
+      <NewPostForm onAddPost={addPostHandler} />
     </Fragment>
   );
 }

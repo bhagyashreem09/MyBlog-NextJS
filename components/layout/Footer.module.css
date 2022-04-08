@@ -1,0 +1,18 @@
+.footerText {
+  padding: 15px;
+  color: #0a1d37;
+  font-family: "Nunito";
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.footer {
+  margin-top: 120px;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  background: #f9f9da;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+}

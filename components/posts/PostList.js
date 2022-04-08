@@ -10,10 +10,10 @@ function PostList(props) {
           id={post.id}
           image={post.image}
           title={post.title}
-          // address={meetup.address}
+          author={post.author}
+          description={post.description}
         />
       ))}
-      
     </ul>
   );
 }
