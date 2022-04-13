@@ -1,68 +1,4 @@
-// import { MongoClient } from "mongodb";
-
 import React from "react";
-
-// import Head from "next/head";
-// import { Fragment } from "react";
-
-// import PostList from "../components/posts/PostList";
-
-// function HomePage(props) {
-//   return (
-//     <Fragment>
-//       <Head>
-//         <title>My Blog</title>
-//         <meta
-//           name="description"
-//           content="Your only place to share photos and content you love."
-//         />
-//       </Head>
-
-//       <PostList posts={ props.posts } />
-
-//     </Fragment>
-//   );
-// }
-
-// export async function getStaticProps() {
-//   const client = await MongoClient.connect(
-//     "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
-//   );
-
-//   const db = client.db();
-
-//   const postsCollection = db.collection("posts");
-
-//   const posts = await postsCollection.find().sort({ createdAt: -1 }).toArray(); //will find all the documents, then convert them into an array.
-
-//   client.close();
-
-//   return {
-//     props: {
-//       posts: posts.map((post) => ({
-//         id: post._id.toString(),
-//         title: post.title,
-//         image: post.image,
-//         description: post.description,
-//         createdAt: post.createdAt.toString(),
-//       })),
-//     },
-//     revalidate: 1,
-//   };
-// }
-
-// // export async function getServerSideProps(context) {
-// //   const request = context.req;
-// //   const response = context.res;
-
-// //   return {
-// //     props: {
-// //       meetups : DUMMY_DATA
-// //     }
-// //   }
-// // }
-
-// export default HomePage;
 
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -112,10 +48,7 @@ function HomePage() {
               <br /> Let your creative side spark, with...
             </p>
             <div className={classes.logoWrapper}>
-              {/* <div className={classes.empty}> </div> */}
-              <div className={classes.logo}>
-                <LogoHeroBox />
-              </div>
+              <LogoHeroBox />
             </div>
           </div>
         </Card>
@@ -125,7 +58,7 @@ function HomePage() {
             <Card onClick={BrowseCardHandler} className={classes.cardImage}>
               <Image
                 src={BrowsePosts}
-                alt="Add Post Image"
+                alt="Browse Posts Image"
                 width="400px"
                 height="400px"
               />
@@ -144,20 +77,6 @@ function HomePage() {
         </div>
 
         <Footer />
-        {/* <div className={classes.footer}>
-          <a
-            className={classes.footerText}
-            href="https://www.linkedin.com/in/bhagyashreemarde09/"
-          >
-            LinkedIn
-          </a>
-          <a
-            className={classes.footerText}
-            href="https://github.com/bhagyashreem09"
-          >
-            GitHub
-          </a>
-        </div> */}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { Fragment } from "react";
 import NewPostForm from "../../components/posts/NewPostForm";
+// import { Binary } from "mongodb";
 
 //----------------------------------ADDING POST--------------------------------------------
 
@@ -9,19 +10,18 @@ function NewPostPage() {
   const router = useRouter();
 
   async function addPostHandler(enteredPostData) {
-    const response = await fetch("/api/add-update-post", {
+    const response = await fetch("/api/api-handling", {
       // this will trigger the api function.
 
       method: "POST",
       body: JSON.stringify(enteredPostData),
+      // body : Binary(enteredPostData),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     const data = await response.json();
-
-    console.log(data);
 
     router.replace("/all-posts");
   }

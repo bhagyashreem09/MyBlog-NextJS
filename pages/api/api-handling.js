@@ -1,4 +1,3 @@
-import { Router } from "@mui/icons-material";
 import { MongoClient, ObjectId } from "mongodb";
 
 async function handler(req, res) {
@@ -29,11 +28,11 @@ async function addPost(req, res) {
     );
 
     const db = client.db();
+
     const postsCollection = db.collection("posts");
 
     await postsCollection.insertOne(data);
 
-    // res.status(201).json({ message: "Post added sucessfully" });
 
     client.close();
 
@@ -60,9 +59,10 @@ async function updatePost(req, res) {
     );
 
     const db = client.db();
+
     const postsCollection = db.collection("posts");
 
-    const filter = { _id: ObjectId(data.id) }; //_id: ObjectId(data._id)
+    const filter = { _id: ObjectId(data.id) };
     const updatedData = {
       $set: {
         title: data.title,
@@ -78,8 +78,6 @@ async function updatePost(req, res) {
     await postsCollection.findOneAndUpdate(filter, updatedData, options);
 
     client.close();
-
-    // res.status(201).json({ message: "Post updated sucessfully" });
 
     return res.json({
       message: "Post Updated Successfully",
@@ -98,20 +96,25 @@ async function updatePost(req, res) {
 async function deletePost(req, res) {
   try {
     const data = req.body;
-
+    console.log(data);
     const client = await MongoClient.connect(
       "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
     );
 
     const db = client.db();
+
     const postsCollection = db.collection("posts");
 
-    const filter = { _id: new ObjectId(data) }; //ObjectId(data.id) }
+    const filter = { _id: new ObjectId(data) };
     const options = {
       sort: { createdAt: -1 },
     };
 
-    await postsCollection.deleteOne(filter, options);
+    console.log(filter);
+
+    await postsCollection.findOneAndDelete(filter, options);
+
+    console.log("post deleted successfully");
 
     client.close();
 
@@ -127,17 +130,5 @@ async function deletePost(req, res) {
     });
   }
 }
-
-//   if (req.method === "DELETE") {
-
-//     const result = await postsCollection.deleteOne(data);
-
-//     console.log(result);
-
-//     res.status(201).json({ message: "Post deleted sucessfully" });
-//   }
-
-//   client.close();
-// }
 
 export default handler;

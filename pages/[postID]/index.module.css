@@ -1,17 +1,83 @@
 .detail {
-    text-align: center;
+  /* text-align: center;
     margin-left: 15rem;
     margin-right: 15rem;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; */
+  justify-content: center;
+  padding-top: 30px;
+  padding-inline: 80px;
 }
 
 .detail img {
-    width: 100%;
+  width: 100%;
+  filter: drop-shadow(0px 5px 40px rgba(0, 0, 0, 0.1));
+}
+
+.textContent {
+  margin-top: 30px;
+  background: #ffffff;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-inline: 200px;
+  padding-inline: 70px;
+}
+
+.textHeader {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.textTitle {
+  margin-top: 20px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+  color: #0a1d37;
+  text-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.textAuthor {
+  margin-top: 20px;
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 300;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  text-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1.5);
+  color: black;
+}
+
+.textBody {
+  margin-top: 70px;
+}
+
+.textCreatedAt {
+  font-family: "Roboto";
+  font-style: bold;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+
+.textDescription {
+  margin-top: 35px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 17px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+
+  white-space: pre-line;
 }
 
 .iconButtons {
-    display: flex;
-    justify-content:right;
-    padding-right: 20px;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: right;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  gap: 30px;
 }

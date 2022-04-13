@@ -1,15 +1,14 @@
-import { useRef, forwardRef } from "react";
+import { useRef } from "react";
 
 // import Card from '../ui/Card';
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import classes from "./NewPostForm.module.css";
+import { useRouter } from "next/router";
 
 function NewPostForm(props) {
-  // const [title, setTitle] = useState('')
-  // const [image, setImage] = useState('');
-  // const [description, setDescription] = useState('');
+  const router = useRouter();
 
   const titleInputRef = useRef();
   const imageInputRef = useRef();
@@ -27,7 +26,7 @@ function NewPostForm(props) {
     const enteredDate = date;
 
     const postData = {
-      title: enteredTitle,
+      title: enteredTitle, 
       image: enteredImage,
       author: enteredAuthor,
       description: enteredDescription,
@@ -35,6 +34,10 @@ function NewPostForm(props) {
     };
 
     props.onAddPost(postData);
+  }
+
+  function onCancelHandler() {
+    router.replace("/all-posts");
   }
 
   return (
@@ -59,6 +62,7 @@ function NewPostForm(props) {
             <Form.Label className={classes.label} htmlFor="image">
               Image
             </Form.Label>
+
             <Form.Control
               className={classes.textbox}
               type="url"
@@ -94,12 +98,13 @@ function NewPostForm(props) {
               maxLength="2000"
             />
           </div>
-          {/* <div className={classes.control}>
-          <Form.Label htmlFor="date">Date : </Form.Label>
-          <p>{date}</p>
-        </div> */}
+
           <div className={classes.align}>
-            <Button className={classes.cancel} type="button">
+            <Button
+              onClick={onCancelHandler}
+              className={classes.cancel}
+              type="button"
+            >
               Cancel
             </Button>
             <Button className={classes.upload} type="submit">
@@ -111,7 +116,5 @@ function NewPostForm(props) {
     </div>
   );
 }
-
-// NewPostForm.displayName = "NewPostForm";
 
 export default NewPostForm;

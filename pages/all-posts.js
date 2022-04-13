@@ -2,8 +2,11 @@ import { MongoClient } from "mongodb";
 
 import Head from "next/head";
 import { Fragment } from "react";
+import Footer from "../components/layout/Footer";
 
 import PostList from "../components/posts/PostList";
+
+import classes from "./all-posts.module.css";
 
 function AllPosts(props) {
   return (
@@ -16,7 +19,11 @@ function AllPosts(props) {
         />
       </Head>
 
-      <PostList posts={props.posts} />
+      <div className={classes.background}>
+        <PostList posts={props.posts} />
+
+        <Footer />
+      </div>
     </Fragment>
   );
 }

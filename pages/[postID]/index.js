@@ -1,6 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
-import { createRef, Fragment, useState } from "react";
+import { Fragment, useState, createRef } from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 
@@ -22,7 +23,8 @@ import classes from "./index.module.css";
 //----------------------------------- DETAILS Page--------------------------------------
 
 function PostDetails(props) {
-  const ref = createRef();
+  const forwardRef = createRef();
+
   const router = useRouter();
 
   const [editStateOpen, setEditStateOpen] = useState(false);
@@ -34,61 +36,6 @@ function PostDetails(props) {
   const deleteOpen = () => setDeleteStateOpen(true);
   const deleteClose = () => setDeleteStateOpen(false);
 
-  //----------------------------DELETE FUNCTION---------------------------------
-
-  async function deletePostHandler() {
-    console.log("delete button clicked");
-
-    const postId = router.query.postID;
-
-    //const deleteDoc = { id: postId.toString() };
-    // const deleteDoc = postId.toString();
-
-    await fetch("/api/add-update-post", {
-      // this will trigger the api function.
-      method: "DELETE",
-      body: postId,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    console.log(postId);
-
-    return router.replace("/all-posts");
-  }
-
-  // ---------------------- EDIT FUNCTION ------------------------------------
-
-  async function editPostHandler(updatedData) {
-    //const mypath = router.push("/update-post");
-
-    const postId = router.query.postID;
-
-    const updatedPostData = {
-      id: postId.toString(),
-      title: updatedData.title,
-      description: updatedData.description,
-      // image: updatedData.image,
-      createdAt: updatedData.createdAt,
-    };
-
-    const response = await fetch("/api/add-update-post", {
-      // this will trigger the api function.
-      method: "PUT",
-      body: JSON.stringify(updatedPostData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    await response.json();
-
-    // console.log(updatedPostData);
-
-    return router.replace("/all-posts");
-  }
-
   return (
     <Fragment>
       <Head>
@@ -97,37 +44,49 @@ function PostDetails(props) {
       </Head>
 
       <div className={classes.detail}>
-        <Card className="mx-auto shadow mb-4 bg-white rounded">
-          <Card.Img src={props.postData.image} alt="My blog image" />
+        <img src={props.postData.image} alt="My blog image" />
+        <Card className={classes.textContent}>
           <Card.Body>
-            <h3 className="p-2">{props.postData.title}</h3>
-            <Card.Text className="p-3">{props.postData.description}</Card.Text>
-            <h6>Created at : {props.postData.createdAt}</h6>
+            <div className={classes.textHeader}>
+              <h3 className={classes.textTitle}>{props.postData.title}</h3>
+              <p className={classes.textAuthor}>
+                - by {props.postData.author} -
+              </p>
+            </div>
+
+            <div className={classes.textBody}>
+              <h6 className={classes.textCreatedAt}>
+                Created At : {props.postData.createdAt}
+              </h6>
+              <Card.Text className={classes.textDescription}>
+                {props.postData.description}
+              </Card.Text>
+            </div>
+
+            <div className={classes.iconButtons}>
+              <Tooltip title="Edit Post">
+                <IconButton onClick={editOpen} aria-label="edit">
+                  <EditIcon />
+                </IconButton>
+              </Tooltip>
+              {
+                <Modal open={editStateOpen} onClose={editClose}>
+                  <UpdatePostForm ref={forwardRef} />
+                </Modal>
+              }
+
+              <Tooltip title="Delete Post">
+                <IconButton onClick={deleteOpen} aria-label="delete">
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+              {
+                <Modal open={deleteStateOpen} onClose={deleteClose}>
+                  <DeletePostForm ref={forwardRef} />
+                </Modal>
+              }
+            </div>
           </Card.Body>
-
-          <div className={classes.iconButtons}>
-            <Tooltip title="Edit Post">
-              <IconButton onClick={editOpen} aria-label="edit">
-                <EditIcon />
-              </IconButton>
-            </Tooltip>
-            {
-              <Modal open={editStateOpen} onClose={editClose}>
-                <UpdatePostForm ref={ref} updatePost={editPostHandler} />
-              </Modal>
-            }
-
-            <Tooltip title="Delete Post">
-              <IconButton onClick={deleteOpen} aria-label="delete">
-                <DeleteIcon />
-              </IconButton>
-            </Tooltip>
-            {
-              <Modal open={deleteStateOpen} onClose={deleteClose}>
-                <DeletePostForm onClick={deletePostHandler} />
-              </Modal>
-            }
-          </div>
         </Card>
       </div>
       <Footer />
@@ -159,6 +118,7 @@ export async function getStaticProps(context) {
       postData: {
         id: selectedPost._id.toString(),
         title: selectedPost.title,
+        author: selectedPost.author,
         description: selectedPost.description,
         image: selectedPost.image,
         createdAt: selectedPost.createdAt,

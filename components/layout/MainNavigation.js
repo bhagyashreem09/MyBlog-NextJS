@@ -4,14 +4,19 @@ import classes from "./MainNavigation.module.css";
 
 import LogoNavBar from "../../public/LogoNavBar.svg";
 import FlareIcon from "@mui/icons-material/Flare";
+import { useRouter } from "next/router";
 
 function MainNavigation() {
+  const router = useRouter();
+
+  function logoNavBarHandler() {
+    router.replace("/");
+  }
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/" passHref>
-          <LogoNavBar />
-        </Link>
+        <LogoNavBar onClick={logoNavBarHandler} />
       </div>
       <nav>
         <ul>
