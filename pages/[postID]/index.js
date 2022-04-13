@@ -1,7 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { Fragment, useState, createRef } from "react";
 import Head from "next/head";
-import Image from "next/image";
 
 import { useRouter } from "next/router";
 
@@ -24,8 +23,6 @@ import classes from "./index.module.css";
 
 function PostDetails(props) {
   const forwardRef = createRef();
-
-  const router = useRouter();
 
   const [editStateOpen, setEditStateOpen] = useState(false);
   const [deleteStateOpen, setDeleteStateOpen] = useState(false);
@@ -99,9 +96,7 @@ export async function getStaticProps(context) {
 
   const postId = context.params.postID;
 
-  const client = await MongoClient.connect(
-    "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.DB_URL);
 
   const db = client.db();
 
@@ -128,9 +123,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.DB_URL);
 
   const db = client.db();
 

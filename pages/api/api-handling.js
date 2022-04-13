@@ -23,9 +23,11 @@ async function addPost(req, res) {
   try {
     const data = req.body;
 
-    const client = await MongoClient.connect(
-      "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
-    );
+    // const client = await MongoClient.connect(
+    //   "mongodb+srv://string:string@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
+    // );
+
+    const client = await MongoClient.connect(process.env.DB_URL);
 
     const db = client.db();
 
@@ -53,9 +55,7 @@ async function updatePost(req, res) {
   try {
     const data = req.body;
 
-    const client = await MongoClient.connect(
-      "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
-    );
+    const client = await MongoClient.connect(process.env.DB_URL);
 
     const db = client.db();
 
@@ -89,15 +89,13 @@ async function updatePost(req, res) {
   }
 }
 
- //------------------------------------ DELETING POST ------------------------------------
+//------------------------------------ DELETING POST ------------------------------------
 
 async function deletePost(req, res) {
   try {
     const data = req.body;
     console.log(data);
-    const client = await MongoClient.connect(
-      "mongodb+srv://bhagym09:bhagym09@cluster0.rocpp.mongodb.net/myBlog?retryWrites=true&w=majority"
-    );
+    const client = await MongoClient.connect(process.env.DB_URL);
 
     const db = client.db();
 

@@ -8,7 +8,6 @@ import { forwardRef } from "react";
 
 const DeletePostForm = forwardRef((props, ref) => {
   const router = useRouter();
-  const date = new Date().toString();
 
   async function deletePostHandler() {
     console.log("delete button clicked");
