@@ -26,7 +26,7 @@ function NewPostForm(props) {
     const enteredDate = date;
 
     const postData = {
-      title: enteredTitle, 
+      title: enteredTitle,
       image: enteredImage,
       author: enteredAuthor,
       description: enteredDescription,

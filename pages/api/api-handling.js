@@ -33,7 +33,6 @@ async function addPost(req, res) {
 
     await postsCollection.insertOne(data);
 
-
     client.close();
 
     return res.json({
@@ -73,7 +72,6 @@ async function updatePost(req, res) {
     };
 
     const options = { returnNewDocument: true };
-    console.log(filter);
 
     await postsCollection.findOneAndUpdate(filter, updatedData, options);
 
@@ -91,7 +89,7 @@ async function updatePost(req, res) {
   }
 }
 
-//   //------------------------------------ DELETING POST ------------------------------------
+ //------------------------------------ DELETING POST ------------------------------------
 
 async function deletePost(req, res) {
   try {
@@ -110,11 +108,7 @@ async function deletePost(req, res) {
       sort: { createdAt: -1 },
     };
 
-    console.log(filter);
-
     await postsCollection.findOneAndDelete(filter, options);
-
-    console.log("post deleted successfully");
 
     client.close();
 

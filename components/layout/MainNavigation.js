@@ -3,7 +3,6 @@ import Link from "next/link";
 import classes from "./MainNavigation.module.css";
 
 import LogoNavBar from "../../public/LogoNavBar.svg";
-import FlareIcon from "@mui/icons-material/Flare";
 import { useRouter } from "next/router";
 
 function MainNavigation() {
@@ -15,8 +14,8 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>
-        <LogoNavBar onClick={logoNavBarHandler} />
+      <div onClick={logoNavBarHandler} className={classes.logo}>
+        <LogoNavBar />
       </div>
       <nav>
         <ul>

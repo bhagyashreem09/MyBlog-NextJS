@@ -55,4 +55,6 @@ const DeletePostForm = forwardRef((props, ref) => {
   );
 });
 
+DeletePostForm.displayName = "DeletePostForm";
+
 export default DeletePostForm;
