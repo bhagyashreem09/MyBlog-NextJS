@@ -1,5 +1,5 @@
 .background {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 
 .card {
@@ -20,7 +20,7 @@
 .header {
   color: #0a1d37;
   text-align: center;
-} 
+}
 
 .control {
   margin-top: 20px;
@@ -36,6 +36,19 @@
 .textbox {
   border-radius: 10px;
   white-space: pre-wrap;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 70px;
+  }
+  .form {
+    margin-inline: 10px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+  }
 }
 
 /* -------------------------------- Buttons -------------------------- */

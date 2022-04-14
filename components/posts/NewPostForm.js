@@ -60,7 +60,7 @@ function NewPostForm(props) {
           </div>
           <div className={classes.control}>
             <Form.Label className={classes.label} htmlFor="image">
-              Image
+              Image Url
             </Form.Label>
 
             <Form.Control

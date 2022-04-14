@@ -32,6 +32,17 @@
   white-space: pre-wrap;
 }
 
+@media screen and (max-width: 800px) {
+  .card {
+    margin-left: 20px;
+    margin-top: 50px;
+    width: fit-content;
+  }
+  .form {
+    margin-inline: 60px;
+  }
+}
+
 /* -------------------------------- Buttons -------------------------- */
 
 .align {

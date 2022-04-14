@@ -22,6 +22,16 @@
   padding-inline: 70px;
 }
 
+@media screen and (max-width: 800px) {
+  .textContent {
+    padding-inline: 10px;
+    margin-inline: 0px; 
+  }
+  .detail {
+     padding-inline: 20px;
+  }
+}
+
 .textHeader {
   text-align: center;
   margin-top: 30px;

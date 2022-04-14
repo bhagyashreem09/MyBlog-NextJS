@@ -2,6 +2,11 @@ Material Design for Bootstrap
 
 Version: MDB React Pro 5.1.0
 
+
+Figma Design :
+https://www.figma.com/proto/Xqt8mSpNSQGPTUoh39Q3ZX/Untitled?node-id=54%3A264&scaling=scale-down-width&page-id=0%3A1&starting-point-node-id=54%3A264
+
+
 Documentation:
 https://mdbootstrap.com/docs/react/
 
